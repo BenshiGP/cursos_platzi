@@ -152,6 +152,14 @@ Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro 
 
 git pull: Básicamente, git fetch y git merge al mismo tiempo.
 
+Cómo revertir un merge
+Si nos hemos equivocado y queremos cancelar el merge, debemos usar el siguiente comando:
+
+git merge --abort
+
+Para traer los datos y fusionarlos a la vez, en un solo comando, se usa git pull.
+­- Para crear commits rápidamente, fusionando git add y git commit -m "", usamos git commit -am "".
+
 ----------------------------------------------------------------------------
 
 Adicionalmente, tenemos otros comandos que nos sirven para trabajar en proyectos muy grandes:

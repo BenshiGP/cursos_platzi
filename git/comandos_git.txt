@@ -1,0 +1,113 @@
+Comandos para iniciar tu repositorio con Git
+
+git init: para inicializar el repositorio git y el staged
+git add nombre_del_archivo.txt: enviar el archivo al staged
+git status: ver el estado, si se requiere agregar al starget o si se requiere commit
+git conf: para ver las posibles configuraciones
+git conf --list: para ver la lista de configuraciones hechas
+git conf --list --show-origin: para mostrar las configuraciones y sus rutas
+git rm --cached nombre_del_archivo.txt: para eliminar el archivo del staged(ram)
+git rm nombre_del_archivo.txt: para eliminar del repositorio
+
+-Si por algún motivo te equivocaste en el nombre o email que configuraste al principio,
+lo puedes modificar de la siguiente manera:
+
+git config --global --replace-all user.name “Aquí va tu nombre modificado”
+O si lo deseas eliminar y añadir uno nuevo
+git config --global --unset-all user.name :Elimina el nombre del usuario
+git config --global --add user.name “Aquí va tu nombre”
+
+----------------------------------------------------------------------------
+
+Comandos para analizar cambios en GIT
+
+git init: inicializar el repositorio
+git add nombre_de_archivo.extensión: agregar el archivo al repositorio
+git commit -m “Mensaje”: Agregamos los cambios para el repositorio
+git add: Agregar los cambios de la carpeta en la que nos encontramos agregar todo
+git status: visualizar cambios
+git log nombre_de_archivos.extensión: histórico de cambios con detalles
+git push: envía a otro repositorio remoto lo que estamos haciendo
+git pull: traer repositorio remoto
+ls: listado de carpetas en donde me encuentro. Es decir, como emplear dir en windows.
+pwd: ubicación actual
+mkdir: make directory nueva carpeta
+touch archivo.extensión: crear archivo vacío
+cat archivo.extensión: muestra el contenido del archivo
+history: historial de comandos utilizados durante esa sesión
+rm archivo.extensión: Eliminación de archivo
+comando --help: ayuda sobre el comando
+git checkout: traer cambios realizados
+git rm --cached archivo.extensión: se utiliza para devolver el archivo que se tiene en ram. Cuando escribimos git add, lo devuelve a estado natural mientras está en staging.
+git config --list: muestra la lista de configuración de git
+git config --list --show-origin: rutas de acceso a la configuración de git
+git log archivo.extensión: muestra la historia del archivo
+
+----------------------------------------------------------------------------
+
+Clases de branches o ramas en Git
+Estas son las ramas base de un proyecto en Git:
+
+1. Rama main (Master)
+Por defecto, el proyecto se crea en una rama llamada Main (anteriormente conocida como Master).
+ Cada vez que añades código y guardas los cambios, estás haciendo un commit, que es añadir el nuevo código a una rama.
+  Esto genera nuevas versiones de esta rama o branch, hasta llegar a la versión actual de la rama Main.
+
+2. Rama development
+Cuando decides hacer experimentos, puedes generar ramas experimentales (usualmente llamadas development), 
+que están basadas en alguna rama main, pero sobre las cuales puedes hacer cambios a tu gusto sin necesidad 
+de afectar directamente al código principal.
+
+3. Rama hotfix
+En otros casos, si encuentras un bug o error de código en la rama Main (que afecta al proyecto en producción),
+ tendrás que crear una nueva rama (que usualmente se llaman bug fixing o hot fix) para hacer los arreglos necesarios.
+  Cuando los cambios estén listos, los tendrás que fusionar con la rama Main para que los cambios sean aplicados.
+   Para esto, se usa un comando llamado Merge, que mezcla los cambios de la rama que originaste a la rama Main.
+
+Todos los commits se aplican sobre una rama. Por defecto, siempre empezamos en la rama Main (pero puedes cambiarle el nombre si no te gusta)
+ y generamos nuevas ramas, a partir de esta, para crear flujos de trabajo independientes.
+
+Cómo crear un branch o rama en Git
+El comando git branch permite crear una rama nueva. Si quieres empezar a trabajar en una nueva función,
+ puedes crear una rama nueva a partir de la rama master con git branch new_branch. Una vez creada,
+  puedes usar git checkout new_branch para cambiar a esa rama.
+
+Recuerda que todas tus versiones salen de la rama principal o Master y de allí puedes tomar una versión específica para crear otra rama de versiones.
+
+Cómo hacer merge
+Producir una nueva rama se conoce como Checkout. Unir dos ramas lo conocemos como Merge.
+
+Cuando haces merge de estas ramas con el código principal, su código se fusiona originando una nueva versión
+ de la rama master (o main) que ya tiene todos los cambios que aplicaste en tus experimentos o arreglos de errores.
+
+Podemos generar todas las ramas y commits que queramos. De hecho, podemos aprovechar el registro
+ de cambios de Git para producir ramas, traer versiones viejas del código, arreglarlas y combinarlas de nuevo para mejorar el proyecto.
+
+Solo ten en cuenta que combinar estas ramas (hacer “merge”) puede generar conflictos.
+ Algunos archivos pueden ser diferentes en ambas ramas. Git es muy inteligente y puede intentar unir
+  estos cambios automáticamente, pero no siempre funciona. En algunos casos, somos nosotros los que debemos resolver estos conflictos a mano.
+
+----------------------------------------------------------------------------
+
+El comando git checkout + ID del commit nos permite viajar en el tiempo. 
+Podemos volver a cualquier versión anterior de un archivo específico o incluso
+ del proyecto entero. Esta también es la forma de crear ramas y movernos entre ellas.
+
+También hay una forma de hacerlo un poco más “ruda”: usando el comando git reset.
+ En este caso, no solo “volvemos en el tiempo”, sino que borramos los cambios que hicimos después de este commit.
+
+Hay dos formas de usar git reset: con el argumento --hard, borrando toda la información
+que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro,
+ con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos
+  aplicar nuestros últimos cambios pero desde un commit anterior.
+
+
+Cómo usar Git Reset
+Para volver a commits previos, borrando los cambios realizados desde ese commit, podemos utilizar:
+
+git reset (el commit al que querramos volver: 83e1c61f6251265cb25fb930545d9ce751382681) --hard
+
+git reset --soft [SHA 1]: elimina los cambios hasta el staging area
+git reset --mixed [SHA 1]: elimina los cambios hasta el working area
+git reset --hard [SHA 1]: regresa hasta el commit del [SHA-1]
+Donde el SHA-1 es el identificador del commit

@@ -3,6 +3,7 @@ set_countries = {'mex', 'col', 'bol'}
 size = len(set_countries)
 print(size)
 
+# retorna booleanos 
 print("col" in set_countries)
 print("pe" in set_countries)
 
@@ -25,3 +26,19 @@ print(set_countries)
 # limpiar la lista completa
 set_countries.clear()
 print(set_countries)
+
+"""
+Funciones de set:
+
+add(): Añade un elemento.
+
+update(): Añade cualquier tipo de objeto iterable como: listas, tuplas.
+
+discard(): Elimina un elemento y si ya existe no lanza ningún error.
+
+remove(): Elimina un elemento y si este no existe lanza el error “keyError”.
+
+pop(): Nos devuelve un elemento aleatorio y lo elimina y si el conjunto está vacío lanza el error “key error”.
+
+clear(): Elimina todo el contenido del conjunto.
+"""

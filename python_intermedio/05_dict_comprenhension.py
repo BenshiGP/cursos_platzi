@@ -26,6 +26,11 @@ popultaion_v2 = {country: random.randint(1, 100) for country in countries}
 print(popultaion_v2)
 """
 
+"""
+La funcion zip() hace una union entre una lista y otra,
+creando una lista con tuplas,
+[('benja', 12), ('mati', 23), ('santi', 54)]
+"""
 names = ["benja", "mati", "santi"]
 ages = [12, 23, 54]
 

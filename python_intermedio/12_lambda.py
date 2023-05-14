@@ -1,6 +1,14 @@
-def increment(z):
-    return z + 1
+"""
 
+def func(args):
+    return ret_val
+    
+func = lambda args: ret_val
+
+"""
+
+def increment(x):
+    return x + 1
 
 result = increment(10)
 print(result)

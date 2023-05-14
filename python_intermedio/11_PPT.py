@@ -2,11 +2,11 @@ import random
 
 
 def choose_options():
-    user_option = input('piedra, papel o tijera => ')
-    user_option = user_option.lower()
+    options = ("piedra", "papel", "tijera")
+    user_option = input('piedra, papel o tijera => ').lower()
+
 
     if not user_option in options:
-        options = ('piedra', 'papel', 'tijera')
         print('esa opcion no es valida')
         # continue
         return None, None
@@ -15,7 +15,7 @@ def choose_options():
 
     print('User option =>', user_option)
     print('Computer option =>', computer_option)
-    return user_option in computer_option
+    return user_option, computer_option
 
 
 def check_rules(user_option, computer_option, user_wins, computer_wins):
@@ -48,7 +48,7 @@ def check_rules(user_option, computer_option, user_wins, computer_wins):
             print('piedra gana a tijera')
             print('computer gano!')
             computer_wins += 1
-    return user_wins, computer_wins,
+    return user_wins, computer_wins
 
 
 def run_game():
@@ -66,8 +66,8 @@ def run_game():
         rounds += 1
 
         user_option, computer_option = choose_options()
-        user_wins, computer_wins = check_rules(
-            user_option, computer_option, user_wins, computer_wins)
+        
+        user_wins, computer_wins = check_rules(user_option, computer_option, user_wins, computer_wins)
 
         if computer_wins == 2:
             print('El ganador es la computadora')

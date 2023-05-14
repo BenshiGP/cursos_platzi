@@ -3,6 +3,9 @@ MAP( )
 La función map () ejecuta una función especifica para cada elemento 
 en un iterable y el elemento se envía a la función como un parámetro.
 
+Se pueden iterar varias listas a la vez, pero se limita a la cantidad
+de elementos del iterable mas pequeño.
+
 Sintaxis.
 map(function, iterables)
 

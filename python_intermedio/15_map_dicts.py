@@ -23,3 +23,7 @@ def add_taxes(item):
 
 new_items = list(map(add_taxes, items))
 print(new_items)
+
+
+### EJERCICIOS ###
+
